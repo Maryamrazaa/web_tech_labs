@@ -1,0 +1,238 @@
+/* ============ Basic reset ============ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f1f3f5;
+  color: #212529;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ============ Editor screen ============ */
+#editorScreen {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: #1f2937;
+  color: #fff;
+}
+
+.topbar h1 {
+  font-size: 20px;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.save-status {
+  font-size: 13px;
+  color: #86efac;
+}
+
+/* ============ Buttons ============ */
+button {
+  padding: 8px 16px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  background: #3b82f6;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+
+button:hover:not(:disabled) {
+  background: #2563eb;
+}
+
+button:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* ============ Two sections layout ============ */
+.editor-layout {
+  flex: 1;
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  min-height: 0; /* scroll sahi chalne ke liye */
+}
+
+.pane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
+
+.pane-title {
+  font-size: 15px;
+  margin-bottom: 8px;
+  color: #495057;
+}
+
+#mdInput {
+  flex: 1;
+  width: 100%;
+  resize: none;
+  padding: 12px;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  outline: none;
+}
+
+#mdInput:focus {
+  border-color: #3b82f6;
+}
+
+/* ============ Slide frame (16:9 box) ============ */
+.slide-frame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+}
+
+.slide {
+  flex: 1;
+  padding: 5% 6%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* ============ Controls (buttons + counter) ============ */
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.counter {
+  min-width: 70px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* ============ Markdown content inside slides ============ */
+.slide h1 {
+  font-size: 2em;
+  margin-bottom: 0.4em;
+  color: #1d4ed8;
+}
+
+.slide h2 {
+  font-size: 1.5em;
+  margin-bottom: 0.4em;
+  color: #374151;
+}
+
+.slide h3 {
+  font-size: 1.2em;
+  margin-bottom: 0.3em;
+}
+
+.slide p {
+  margin-bottom: 0.6em;
+}
+
+.slide ul,
+.slide ol {
+  margin: 0 0 0.6em 1.5em;
+}
+
+.slide li {
+  margin-bottom: 0.2em;
+}
+
+.slide code {
+  background: #f1f3f5;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: Consolas, monospace;
+}
+
+.slide pre {
+  background: #1f2937;
+  color: #f9fafb;
+  padding: 12px;
+  border-radius: 6px;
+  overflow: auto;
+  margin-bottom: 0.6em;
+}
+
+.slide pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+
+.slide blockquote {
+  border-left: 4px solid #3b82f6;
+  padding-left: 12px;
+  color: #495057;
+  margin-bottom: 0.6em;
+}
+
+.slide img {
+  max-width: 100%;
+  max-height: 60%;
+}
+
+.slide a {
+  color: #2563eb;
+}
+
+/* ============ Presentation screen ============ */
+#presentScreen {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #111827;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.present-frame {
+  /* screen mein fit hone wala 16:9 box */

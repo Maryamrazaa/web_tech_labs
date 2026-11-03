@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Markdown Slides</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ================= EDITOR SCREEN (Create / Edit) ================= -->
+  <div id="editorScreen">
+
+    <header class="topbar">
+      <h1>Markdown Slides</h1>
+      <div class="topbar-actions">
+        <span id="saveStatus" class="save-status"></span>
+        <button id="saveBtn" type="button">Save</button>
+        <button id="presentBtn" type="button">Present</button>
+      </div>
+    </header>
+
+    <main class="editor-layout">
+
+      <!-- Section 1: Markdown code -->
+      <section class="pane editor-pane">
+        <h2 class="pane-title">Markdown</h2>
+        <textarea id="mdInput" spellcheck="false"></textarea>
+      </section>
+
+      <!-- Section 2: Live preview -->
+      <section class="pane preview-pane">
+        <h2 class="pane-title">Preview</h2>
+
+        <div id="previewFrame" class="slide-frame">
+          <div id="previewSlide" class="slide"></div>
+        </div>
+
+        <div class="controls">
+          <button id="prevBtn" type="button">&larr; Left</button>
+          <span id="previewCounter" class="counter">0 / 0</span>
+          <button id="nextBtn" type="button">Right &rarr;</button>
+          <button id="fsBtn" type="button">Full Screen</button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ================= PRESENTATION SCREEN ================= -->
+  <div id="presentScreen" class="hidden">
+
+    <div id="presentFrame" class="slide-frame present-frame">
+      <div id="presentSlide" class="slide"></div>
+    </div>
+
+    <div class="controls present-controls">
+      <button id="presPrevBtn" type="button">&larr; Left</button>
+      <span id="presentCounter" class="counter">0 / 0</span>
+      <button id="presNextBtn" type="button">Right &rarr;</button>
+      <button id="presFsBtn" type="button">Exit Full Screen</button>
+    </div>
+
+  </div>
+
+  <!-- Libraries and scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
